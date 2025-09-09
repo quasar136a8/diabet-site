@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+
+const lib = (() => {
+    let cookie = key => ({
+        get val() {
+            let parts = ("; " + document.cookie).split(`; ${key}=`)
+            if (parts.length == 2)
+                return parts.pop()?.split(";").shift()
+            return null
+        },
+        set val(v) {
+            document.cookie =  `${key}=${v}; expires=Fri, 3 Aug 2030 20:47:11 UTC; path=/`
+        }
+    });
+    let cookLang = cookie("lang");
+
+    return {
+        get cookLang() {
+            let w = cookLang.val
+            return w && ["ua","en","de","it","pl"].indexOf(w) > -1 ? w : null
+        },
+        set cookLang(v) { cookLang.val = v },
+
+        euroLang: cookie("eulang"),
+
+        inferLang(href) {
+            return href.indexOf('/en') > -1 ? "en"
+                : href.indexOf('/de') > -1 ? "de"
+                    : href.indexOf('/it') > -1 ? "it"
+                        : href.indexOf('/pl') > -1 ? "pl" : "ua";
+        },
+    get lang() {
+        return this.inferLang(location.href)
+    },
+
+    sendLiqpay(sign, data, isNewWindow) {
+        var form = document.createElement("form");
+        if (!sign || sign == "null")
+            sign = this.lang == "en" ? "8FCafqMc//6iKe9wB+eqZWs3FPc=" : "TVNsm5bs8KyxZhkpsexBFHb8Mb8=";
+        if (!data || data == "null")
+            data = this.lang == "en" 
+            ? "eyJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiI1MDAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoiRG9uYXRlIHRvIHRoZSBmdW5kIiwicmVzdWx0X3VybCI6Imh0dHBzOlwvXC9kaWFiZXQuZnVuZFwvZW4iLCJsYW5ndWFnZSI6ImVuIiwidmVyc2lvbiI6IjMiLCJwdWJsaWNfa2V5IjoiaTMwNzg0ODE1MTQzIn0="
+            : "eyJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiI1MDAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoiXHUwNDFmXHUwNDNlXHUwNDM2XHUwNDM1XHUwNDQwXHUwNDQyXHUwNDMyXHUwNDQzXHUwNDMyXHUwNDMwXHUwNDQyXHUwNDM4IFx1MDQzMiBcdTA0NDRcdTA0M2VcdTA0M2RcdTA0MzQiLCJyZXN1bHRfdXJsIjoiaHR0cHM6XC9cL2RpYWJldC5mdW5kXC91YSIsImxhbmd1YWdlIjoidWsiLCJ2ZXJzaW9uIjoiMyIsInB1YmxpY19rZXkiOiJpMzA3ODQ4MTUxNDMifQ==";
+
+        form.method = "POST";
+        form.action = "https://www.liqpay.ua/api/3/checkout";
+        form.innerHTML = `<input type="hidden" name="data" value="${data}"/>
+                <input type="hidden" name="signature" value="${sign}"/>
+                <input type="image" src="//static.liqpay.ua/buttons/p1ru.radius.png" name="btn_text"/>`;
+        if (isNewWindow === true)
+            form.target = "_blank";
+
+        document.getElementsByTagName("body")[0].appendChild(form);
+        form.submit();
+        form.remove();
+    }
+    };
+})();
+
+(() => {
+   var qrUrls = {
+      "1": "/ua/fundraising/dopomogti-sensorami-vimiryuvannya-glyukozi/",
+      "2": "/ua/fundraising/dopomogti-insulinom/",
+      "3": "/ua/fundraising/dopomogti-glyukometrami-j-test-smuzhkami-do-nih/",
+      "4": "/ua/fundraising/help-rehab/",
+      "5": "/ua/fundraising/dopomogti-vijskovim-chastinam-a5717-a0998-a0284-a1277-a110888/",
+      "6": ["lhGU6LQ/H3VPnWlvd96Xw781jC8=", "eyJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiI1MDAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoiXHUwNDE0XHUwNDNlXHUwNDNmXHUwNDNlXHUwNDNjXHUwNDNlXHUwNDMzXHUwNDQyXHUwNDM4IFx1MDQ0MVx1MDQzNVx1MDQzZFx1MDQ0MVx1MDQzZVx1MDQ0MFx1MDQzMFx1MDQzY1x1MDQzOCBcdTA0MzJcdTA0MzhcdTA0M2NcdTA0NTZcdTA0NDBcdTA0NGVcdTA0MzJcdTA0MzBcdTA0M2RcdTA0M2RcdTA0NGYgXHUwNDMzXHUwNDNiXHUwNDRlXHUwNDNhXHUwNDNlXHUwNDM3XHUwNDM4IHZvbC4xIiwicmVzdWx0X3VybCI6Imh0dHBzOlwvXC9kaWFiZXQuZnVuZFwvdWFcL2Z1bmRyYWlzaW5nIiwibGFuZ3VhZ2UiOiJ1ayIsInZlcnNpb24iOiIzIiwicHVibGljX2tleSI6ImkzMDc4NDgxNTE0MyJ9"],
+      "7": ["fdAVNnlOBh3296alXSKwaO9qt8w=", "eyJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiI1MDAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoiXHUwNDE0XHUwNDNlXHUwNDNmXHUwNDNlXHUwNDNjXHUwNDNlXHUwNDMzXHUwNDQyXHUwNDM4IFx1MDQ1Nlx1MDQzZFx1MDQ0MVx1MDQ0M1x1MDQzYlx1MDQ1Nlx1MDQzZFx1MDQzZVx1MDQzYyB2b2wuMSIsInJlc3VsdF91cmwiOiJodHRwczpcL1wvZGlhYmV0LmZ1bmRcL3VhXC9mdW5kcmFpc2luZyIsImxhbmd1YWdlIjoidWsiLCJ2ZXJzaW9uIjoiMyIsInB1YmxpY19rZXkiOiJpMzA3ODQ4MTUxNDMifQ=="],
+      "8": ["BsZrgWraD6Wy5UETctesYEDGVs0=", "eyJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiI1MDAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoiXHUwNDE0XHUwNDNlXHUwNDNmXHUwNDNlXHUwNDNjXHUwNDNlXHUwNDMzXHUwNDQyXHUwNDM4IFx1MDQzM1x1MDQzYlx1MDQ0ZVx1MDQzYVx1MDQzZVx1MDQzY1x1MDQzNVx1MDQ0Mlx1MDQ0MFx1MDQzMFx1MDQzY1x1MDQzOCBcdTA0MzkgXHUwNDQyXHUwNDM1XHUwNDQxXHUwNDQyLVx1MDQ0MVx1MDQzY1x1MDQ0M1x1MDQzNlx1MDQzYVx1MDQzMFx1MDQzY1x1MDQzOCBcdTA0MzRcdTA0M2UgXHUwNDNkXHUwNDM4XHUwNDQ1IHZvbC4xIiwicmVzdWx0X3VybCI6Imh0dHBzOlwvXC9kaWFiZXQuZnVuZFwvdWFcL2Z1bmRyYWlzaW5nIiwibGFuZ3VhZ2UiOiJ1ayIsInZlcnNpb24iOiIzIiwicHVibGljX2tleSI6ImkzMDc4NDgxNTE0MyJ9"],
+      "9": [null, null],
+      "a": ["tukxOEm1DF4MRR+HGAXM7PST9wM=", "eyJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiI1MDAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoiXHUwNDE0XHUwNDNlXHUwNDNmXHUwNDNlXHUwNDNjXHUwNDNlXHUwNDMzXHUwNDQyXHUwNDM4IFx1MDQzMlx1MDQ1Nlx1MDQzOVx1MDQ0MVx1MDQ0Y1x1MDQzYVx1MDQzZVx1MDQzMlx1MDQzOFx1MDQzYyBcdTA0NDdcdTA0MzBcdTA0NDFcdTA0NDJcdTA0MzhcdTA0M2RcdTA0MzBcdTA0M2MgXHUwNDEwNTYxNzsgXHUwNDEwMDk5ODsgXHUwNDEwMDI4NDsgXHUwNDEwMTI3NzsgXHUwNDEwMTEwOCIsInJlc3VsdF91cmwiOiJodHRwczpcL1wvZGlhYmV0LmZ1bmRcL3VhXC9mdW5kcmFpc2luZyIsImxhbmd1YWdlIjoidWsiLCJ2ZXJzaW9uIjoiMyIsInB1YmxpY19rZXkiOiJpMzA3ODQ4MTUxNDMifQ=="],
+      "b": "/ua/fundraising/kherson-pallets/"
+   };
+
+    if (location.search.startsWith("?q=")) {
+        var url = qrUrls[location.search.split("?q=")[1]];
+        if (typeof url == "string") 
+            return location.href = url;
+          
+        else if (Array.isArray(url))
+            return setTimeout(() => lib.sendLiqpay(url[0], url[1]), 500);
+    }
+    location.href= "/" + (lib.euroLang.val || lib.cookLang||"en");
+})();
+     
+    </script>
+</head>
+<body >
+    <ul>
+        <li>
+            <a href="/en/">English version: <cite>Charitable Foundation for Diabetes Care and Rehabilitation</cite></a>
+        </li>
+        <li>
+            <a href="/ua/">Українська версія: <cite>Благодійний фонд допомоги та реабілітації хворих на цукровий діабет</cite></a>
+        </li>
+        <li>
+            <a href="/de/">Deutsche Version: <cite>Wohltätigkeitsfonds zur Unterstützung und Rehabilitation von Patienten mit Diabetes</cite></a>
+        </li>
+        <li>
+            <a href="/pl/">wersja polska: <cite>Fundusz charytatywny na rzecz pomocy i rehabilitacji chorych na cukrzycę</cite></a>
+        </li>
+    </ul>
+</body>
+</html>

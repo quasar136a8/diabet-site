@@ -1,0 +1,66 @@
+[
+   {
+      "Pic": "c1",
+      "Key": "RehabSLO",
+      "En": "Rehabilitation center in Slovakia ➜",
+      "Uk": "Реабілітаційний центр у Словаччині ➜",
+      "De": "Rehabilitationszentrum in der Slowakei ➜",
+      "It": "Centro di riabilitazione in Slovacchia ➜",
+      "Pl": "Ośrodek rehabilitacyjny na Słowacji ➜"
+   },
+   {
+      "Pic": "c2",
+      "Key": "RehabSLO",
+      "En": "Rehabilitation center in Slovakia ➜",
+      "Uk": "Реабілітаційний центр у Словаччині ➜",
+      "De": "Rehabilitationszentrum in der Slowakei ➜",
+      "It": "Centro di riabilitazione in Slovacchia ➜",
+      "Pl": "Ośrodek rehabilitacyjny na Słowacji ➜"
+   },
+   {
+      "Pic": "c3",
+      "Key": "RehabSLO",
+      "En": "Rehabilitation center in Slovakia ➜",
+      "Uk": "Реабілітаційний центр у Словаччині ➜",
+      "De": "Rehabilitationszentrum in der Slowakei ➜",
+      "It": "Centro di riabilitazione in Slovacchia ➜",
+      "Pl": "Ośrodek rehabilitacyjny na Słowacji ➜"
+   },
+   {
+      "Pic": "sensors",
+      "Key": "sensors",
+      "En": "Helping with glucose sensors",
+      "Uk": "Допомога сенсорами вимірювання глюкози",
+      "De": "Hilfe zu Glukosemesssensoren",
+      "It": "Aiuto con i sensori di misurazione del glucosio",
+      "Pl": "Pomoc dotycząca czujników pomiaru glukozy"
+   },
+   {
+      "Pic": "glokometer",
+      "Key": "glukomet",
+      "En": "Helping with glucometers",
+      "Uk": "Допомога глюкометрами й тест-смужками до них",
+      "De": "Helfen Sie ihnen mit Blutzuckermessgeräten und Teststreifen",
+      "It": "Aiutali con glucometri e strisce reattive per loro",
+      "Pl": "Pomoc z glukometrami i paskami testowymi do nich"
+   },
+   {
+      "Pic": "sweetener",
+      "Key": "sweet",
+      "En": "Helping with sweetener ➜",
+      "Uk": "Допомога цукрозамінником та сумішшю для випікання",
+      "De": "Hilfe mit Zuckerersatz und Backmischung",
+      "It": "Aiutatevi con il sostituto dello zucchero e la miscela per dolci",
+      "Pl": "Pomoc z substytutem cukru i mieszanką do pieczenia"
+   },
+   {
+      "Pic": "zsu",
+      "Key": "AssZsu",
+      "IsArchived": true,
+      "En": "Assistance to military ➜",
+      "Uk": "Допомога ЗСУ ➜",
+      "De": "Hilfeleistung der Bundeswehr ➜",
+      "It": "Assistenza delle Forze Armate ➜",
+      "Pl": "Pomoc Sił Zbrojnych ➜"
+   }
+]

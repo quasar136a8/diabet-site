@@ -1,0 +1,15 @@
+{
+   "compilerOptions": {
+     "outFile": "./source/script.js",
+     "allowJs": false,
+     "target": "es6"
+   },
+   "lib": [
+      "esnext",
+      "esnext.disposable", // Value is not accepted.
+      "dom"
+    ],
+   "files": [
+      "./source/script.ts"
+    ]
+ }

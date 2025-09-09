@@ -1,0 +1,157 @@
+<main class="founding-docs">
+   <section class="founding-docs__section">
+       <div class="container">
+           <h2 class="founding-docs__title title">Форма на отримання допомоги по діабету</h2>
+           <div class="article__content">
+            Друзі, ми бажаємо допомогти вам всім, чим можемо. Для того, щоб ми могли це зробити, будь ласка, заповніть дані про пацієнта у формі нижче. Ці дані будуть внесені до нашої Бази пацієнтів. База допоможе нам вести звітність та звітувати перед нашими партнерами. 
+           </div>
+           <div class="article__content">
+                <table style="margin-top: 40px; margin-bottom: 10px;">
+                    <tr>
+                        <td class="recepient-radio-title">
+                            Пацієнт з діагнозом "діабет"
+                        </td>
+                        <td>
+                            <button class="btn-recipient btn-pressed radioval" name="recipient-type" type="button" data-radioval="0">Дорослий</button>
+                        </td>
+                        <td>
+                            <button class="btn-recipient radioval" name="recipient-type" type="button" data-radioval="1">Дитина</button>
+                        </td>
+                    </tr>
+                </table>
+                <div style="display: flex; flex-wrap: wrap;" id="docform">
+                    <div class="col-lg-6">
+                        Фото документа, який підтверджує діагноз "діабет" у пацієнта. Це може бути: витяг із мед. карти, медичний висновок, епікриз тощо - документ, в якому зазначено ДІАГНОЗ (достатньо одного документа)
+                        <input class="form__field rep-field inp-doc" type="file" title="Фото документа, який підтверджує діагноз">
+                    </div>
+                </div>
+                <div class="radioval" style="display: flex; flex-wrap: wrap;" data-radioval="recipient-type:0">
+                    <div class="col-lg-6">
+                        Прізвище пацієнта із діагнозом "діабет"
+                        <input class="form__field rep-field inp-surname" type="text" placeholder="Ткаченко">
+                        Iм'я
+                        <input class="form__field rep-field inp-name" type="text" placeholder="Мар'яна">
+                        Ім'я по-батькові
+                        <input class="form__field rep-field inp-parto" type="text"  placeholder="Iванiвна">
+                        Дата народження пацієнта
+                        <input class="form__field rep-field inp-birth" type="date" placeholder="25.01.1978">
+                        Скільки років
+                        <input class="form__field rep-field inp-ages" type="number" placeholder="45">
+                        Контактний номер телефона
+                        <table>
+                            <tr>
+                                <td>+380</td>
+                                <td>
+                                    <input class="form__field rep-field inp-phone" type="text" placeholder="" title="Контактний номер телефона">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-6">
+                        Дані паспорта
+                        <table>
+                            <tr>
+                                <td>
+                                    <input class="form__field rep-field inp-passserial" type="text" placeholder="Cерія" title="Cерія паспорта">
+                                </td>
+                                <td>
+                                    <input class="form__field rep-field inp-passnumber" type="text" placeholder="Hомер" title="Hомер паспорта">
+                                </td>
+                            </tr>
+                        </table>
+                        Kим виданий
+                        <input class="form__field rep-field inp-passtaker" type="text" placeholder="7115 УДМС УКРАЇНИ в Черкаськiй областi">
+                        Дата видачі
+                        <input class="form__field rep-field inp-passdate" type="date" placeholder="25.01.2010">
+                    </div>
+                </div>
+                <div class="radioval" style="display: none; flex-wrap: wrap;" data-radioval="recipient-type:1">
+                    <div class="col-lg-6">
+                        Прізвище дитини із діагнозом "діабет"
+                        <input class="form__field rep-field inp-surname" type="text" placeholder="Ткаченко">
+                        Iм'я дитини
+                        <input class="form__field rep-field inp-name" type="text" placeholder="Мар'яна">
+                        Ім'я по-батькові
+                        <input class="form__field rep-field inp-parto" type="text" placeholder="Iванiвна">
+                        Дата народження дитини
+                        <input class="form__field rep-field inp-birth" type="date" placeholder="25.01.2018">
+                        Скільки років
+                        <input class="form__field rep-field inp-ages" type="number" placeholder="5">
+                        Контактний номер батька
+                        <table>
+                            <tr>
+                                <td>+380</td>
+                                <td><input class="form__field rep-field inp-phone" type="text" placeholder="" title="Контактний номер батька"></td>
+                            </tr>
+                        </table>
+                        Iм'я батька
+                        <input class="form__field rep-field inp-phonename" type="text"  placeholder="">
+                    </div>
+                    <div class="col-lg-6">
+                        Місце народження в свідоцтві дитини
+                        <input class="form__field rep-field inp-birthplace" type="text" placeholder="Україна, Харківська обл., Ізюмський р-н, селище Донець">
+                        Данні паспорту одного з батьків
+                        <table>
+                            <tr>
+                                <td>
+                                    <input class="form__field rep-field inp-passserial" type="text" placeholder="Cерія" title="Cерія паспорту одного з батьків">
+                                </td>
+                                <td>
+                                    <input class="form__field rep-field inp-passnumber" type="text" placeholder="Hомер" title="Hомер паспорту одного з батьків">
+                                </td>
+                            </tr>
+                        </table>
+                        Ким видано паспорт батька
+                        <input class="form__field rep-field inp-passtaker" type="text" placeholder="7115 УДМС УКРАЇНИ в Черкаськiй областi">
+                        Дата видачі
+                        <input class="form__field rep-field inp-passdate" type="date" placeholder="25.01.2010">
+                    </div>
+                </div>
+                <table style="margin-top: 20px; margin-bottom: 10px;">
+                    <tr>
+                        <td class="recepient-radio-title">Отримувач посилки</td>
+                        <td style="min-width: 123px;">
+                            <button class="btn-recipient btn-pressed radioval" type="button" data-radioval="0" name="contact-type">Я особисто</button>
+                        </td>
+                        <td style="min-width: 138px;">
+                            <button class="btn-recipient radioval" type="button" data-radioval="1" name="contact-type">Інша людина</button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="radioval" style="display: flex; flex-wrap: wrap; " data-radioval="contact-type:0">
+                    <div class="col-lg-6">
+                        Відділення <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxzCqT7CqTXO_py5wHcdmcmZdavvZRVffVSh_UCjgurG-02-fEEYm78w&usqp=CAU" style="width: 20px; display: inline;
+                        margin: 0px 5px -5px 5px;"/><b>Нової Пошти</b>, куди висилати гуманітарну допомогу
+                        <input class="form__field rep-field inp-postaddress" type="text" placeholder="вулиуця Гоголя, 12, Ізюм, Харківська область, 64309">
+                    </div>
+                </div>
+                <div class="radioval" style="display: none; flex-wrap: wrap;" data-radioval="contact-type:1">
+                    <div class="col-lg-6">
+                        Відділення <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSxzCqT7CqTXO_py5wHcdmcmZdavvZRVffVSh_UCjgurG-02-fEEYm78w&usqp=CAU" style="width: 20px; display: inline;
+                        margin: 0px 5px -5px 5px;"/><b>Нової Пошти</b>, куди висилати гуманітарну допомогу
+                        <input class="form__field rep-field inp-postaddress" type="text" placeholder="вулиуця Гоголя, 12, Ізюм, Харківська область, 64309">
+                        Номер телефона отримувача посилки
+                        <table>
+                            <tr>
+                                <td>+380</td>
+                                <td><input class="form__field rep-field inp-postphone" type="text" placeholder="" title="Номер телефона отримувача посилки"></td>
+                            </tr>
+                        </table>
+                        Прізвище отримувача посилки
+                        <input class="form__field rep-field inp-postsurname" type="text">
+                        Iм'я
+                        <input class="form__field rep-field inp-postname" type="text">
+                        Ім'я по-батькові
+                        <input class="form__field rep-field inp-postparto" type="text">
+                    </div>
+                </div>
+                <form  action="https://formspree.io/f/mjvzzrvr">
+                <button class="btn-recipient" type="button" id="seld-recipiet" style="margin-top: 40px; margin-bottom: 20px; margin-left: 20px;">
+                    Відправити
+                </button>
+                <input type="hidden" name="message"/>
+                </form>
+           </div>
+       </div>
+   </section>
+</main>
